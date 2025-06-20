@@ -6,15 +6,91 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: antiquewhite;">
-    <nav style="background-color: black;text-align: center;padding: 5px;">
-        <a href="home.html" style="text-decoration: none; color: rgb(216, 216, 239); margin: 10px;">home</a>
-        <a href="gallery.html" style="text-decoration:none ; color: rgb(204, 204, 230);margin: 10px;">gallery</a>
-        <a href="contactus.html" style="text-decoration: none; color: rgb(196, 196, 233); margin: 10px;">contacts</a>
-        <a href="aboutus.html" style="text-decoration: none; color: rgb(202, 202, 236); margin: 10px;">aboutus</a>
-        <a href="services&products.htm" style="text-decoration: none; color: rgb(202, 202, 236); margin: 10px;">services&products</a>
+<body style="background-color: antiquewhite; text-align: center;"></body>
+<style>
+    .nav-link {
+      display: inline-block;
+      text-decoration: none;
+      background-color: black;
+      color: rgb(216, 216, 239);
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
 
-</nav>
+    .nav-link:hover {
+      background-color: #ff8c00;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    nav {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+  <style>
+     body {
+      background-color: antiquewhite;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    form {
+      background-color: #f2f2f2;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input:focus {
+      border-color: #5da4d6;
+      outline: none;
+    }
+
+    button {
+      background-color: #5da4d6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3c88b5;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="home.html" class="nav-link">Home</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
+    <a href="contactus.html" class="nav-link">Contacts</a>
+    <a href="aboutus.html" class="nav-link">About Us</a>
+    <a href="services&products.htm" class="nav-link">Services & Products</a>
+  </nav>        
+        
+
+        
 
     <h1>here are my contacts</h1>
     <p>here are my numbers :0680747821 </p>
@@ -24,27 +100,79 @@
     <br>
     <h1>here is our location on the map</h1>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.9608353166514!2d27.806955475212856!3d-26.26293447704049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95a4136c788e09%3A0x480342004acaffca!2s108%20Black%20Bark%20St%2C%20Protea%20Glen%2C%20Soweto%2C%201819%2C%20South%20Africa!5e0!3m2!1sen!2sie!4v1743775426536!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br><br>
-    <form style="background-color: black ; text-align: center;">
-        <label for="name" style="font-weight: bold; background-color: rgb(204, 204, 245);">name</label>
-        <input type="text"placeholder="Firstname"required><br><br>
-        <label for="email" style="font-weight: bold; background-color: rgb(209, 209, 243);">E-maail </label>
-        <input type="email" placeholder="example@gmail.com" required><br><br>
-        <label for="massage" style="font-weight: bold ;background-color: rgb(199, 199, 241);">massage</label>
-        <textarea placeholder="your massage her"required></textarea><br><br>
-        <button type="submit" style="background-color: rgb(183, 186, 235); 
-        border-radius: 5px; cursor: pointer;" >submit</button>
-        <div class="social-icons">
-            <a href="https://facebook.com/" target="_blank" class="icon-btn" title="Facebook">👍</a>
-            <a href="https://wa.me/" target="_blank" class="icon-btn" title="WhatsApp">💬</a>
-            <a href="https://instagram.com/" target="_blank" class="icon-btn" title="Instagram">📸</a>
-          </div>
-          <div class="social-icons">
-            <a href="https://facebook.com/" target="_blank" class="icon-btn" title="Facebook">👍</a>
-            <a href="https://wa.me/" target="_blank" class="icon-btn" title="WhatsApp">💬</a>
-            <a href="https://instagram.com/" target="_blank" class="icon-btn" title="Instagram">📸</a>
-          </div>
-    </form>
+    
+    <h2>please fill in this validation form</h2>
+
+    <form id="contactForm" onsubmit="return validateForm()">
+    <div class="error" id="nameError"></div>
+    <input type="text" id="name" placeholder="First Name" required>
+
+    <div class="error" id="surnameError"></div>
+    <input type="text" id="surname" placeholder="Surname" required>
+
+    <div class="error" id="emailError"></div>
+    <input type="email" id="email" placeholder="Email" required>
+
+    <div class="error" id="passwordError"></div>
+    <input type="password" id="password" placeholder="Password" required minlength="6">
+
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      let valid = true;
+
+      // Clear previous errors
+      document.getElementById("nameError").textContent = "";
+      document.getElementById("surnameError").textContent = "";
+      document.getElementById("emailError").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+
+      const name = document.getElementById("name").value.trim();
+      const surname = document.getElementById("surname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      // Name validation
+      if (name === "") {
+        document.getElementById("nameError").textContent = "Please enter your first name.";
+        valid = false;
+      }
+
+      // Surname validation
+      if (surname === "") {
+        document.getElementById("surnameError").textContent = "Please enter your surname.";
+        valid = false;
+      }
+
+      // Email validation
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Please enter a valid email address.";
+        valid = false;
+      }
+
+      // Password validation
+      if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+        valid = false;
+      }
+
+      return valid;
+    }
+  </script>
+  <script>
+    function openWhatsApp() {
+      const phoneNumber = "27680747821"; // Your full WhatsApp number with country code
+      const message = "Hi, I'm interested in your services at Crown & Glory!";
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>    
     <footer>
+
 
         <p1 style="text-align: center;"> &copy; copyright - 2025 - KIM</p1>
     </footer>

@@ -6,16 +6,72 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: antiquewhite;">
-    <nav style="background-color: black;text-align: center;padding: 5px;">
-        <a href="home.html" style="text-decoration: none; color: rgb(216, 216, 239); margin: 10px;">home</a>
-        <a href="gallery.html" style="text-decoration:none ; color: rgb(204, 204, 230);margin: 10px;">gallery</a>
-        <a href="contactus.html" style="text-decoration: none; color: rgb(196, 196, 233); margin: 10px;">contacts</a>
-        <a href="aboutus.html" style="text-decoration: none; color: rgb(202, 202, 236); margin: 10px;">aboutus</a>
-        <a href="services&products.htm" style="text-decoration: none; color: rgb(202, 202, 236); margin: 10px;">services&products</a>
+<body style="background-color: antiquewhite; text-align: center;"></body>
+<style>
+    .nav-link {
+      display: inline-block;
+      text-decoration: none;
+      background-color: black;
+      color: rgb(216, 216, 239);
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
 
-        </nav>
-        
+    .nav-link:hover {
+      background-color: #ff8c00;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    nav {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+    }
+
+    
+    #searchBar {
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
+      margin-bottom: 20px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: white;
+      margin: 10px auto;
+      padding: 15px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    li:hover {
+      transform: scale(1.03);
+      background-color: #f0f8ff;
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <a href="home.html" class="nav-link">Home</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
+    <a href="contactus.html" class="nav-link">Contacts</a>
+    <a href="aboutus.html" class="nav-link">About Us</a>
+    <a href="services&products.htm" class="nav-link">Services & Products</a>
+  </nav>        
         
 
         
@@ -28,7 +84,33 @@
           <h2>women's hair cut:R80</h2><img src="women haircut.jfif">
           <h2>men's haircut:R80</h2><img src="men haircut.jfif">
           <h2>collest braids for man</h2><img src="coolest braids for men.jfif">
-          
+  <input type="text" id="searchBar" onkeyup="searchList()" placeholder="Search services or products...">
+
+  <ul id="itemList">
+    <li>Braiding</li>
+    <li>Haircut</li>
+    <li>Afro Treatment</li>
+    <li>Relaxing</li>
+    <li>Men's Styling</li>
+    <li>Hair Products</li>
+    <li>Kids Hairstyles</li>
+    <li>Dreadlocks Maintenance</li>
+    <li>Natural Hair Services</li>
+    <li>Volunteer Signup</li>
+    <li>Sponsorship Packages</li>
+  </ul>
+
+  <script>
+    function searchList() {
+      const input = document.getElementById("searchBar").value.toLowerCase();
+      const listItems = document.querySelectorAll("#itemList li");
+
+      listItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(input) ? "block" : "none";
+      });
+    }
+  </script>         
 
     <footer>
 
